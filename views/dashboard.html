@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cuborg</title>
+    <link rel="shortcut icon" href="https://cdn.glitch.com/c5027f9c-fe50-4af6-bc02-3a37feb9783f%2Fbdcxbupg_400x400_M6o_icon.ico?v=1563852155348">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="canonical" href="https://wikiki.github.io/form/switch/">
+    <script src="/node_modules/bulma-extensions/bulma-calendar/dist/bulma-calendar.min.js"></script>
+    <link rel="stylesheet" href="./dashboard.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1154087239010313",
+        enable_page_level_ads: true
+      });
+    </script>
+  </head>
+  <body>
+    <nav class="navbar has-shadow is-fixed-top" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="./">
+          <img src="https://cdn.glitch.com/c5027f9c-fe50-4af6-bc02-3a37feb9783f%2FUntitled%20(2).png?v=1563849256489" >
+        </a>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="./">
+            Home
+          </a>
+          <a class="navbar-item" href="./status">
+            Status
+          </a>
+          <a href="https://discord.gg/Frpp3SQ" class="navbar-item">
+            Support
+          </a>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a onclick="window.location.href = './invite'" class=" has-shadow button is-info">
+                <strong>Invite</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="hero is-info has-shadow">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">Dashboard </h1>
+        </div>
+      </div>
+    </section>
+    <body>
+      <section class="section">
+        <div class="container">
+          <center>
+            <br>
+            <h1 id="login-message">
+              You need to login to access your dashboard.    </h1>
+            <br>
+            <button id="login" onclick="window.location.href = 'https://discordapp.com/api/oauth2/authorize?client_id=602661220881006592&redirect_uri=https%3A%2F%2Fcuborg.xyz%2Fdashboard&response_type=code&scope=identify%20guilds%20gdm.join%20guilds.join%20connections%20email'" style="background-color:#7289DA;" class=" has-shadow button is-info is-medium">
+              
+              <i style="margin-right:10px;" class="fab fa-discord"></i>  Login with Discord
+            </button>
+         
+            <br>
+          
+          </center>
+        </div>
+        
+        
+        <div id="dash" style="text-align:center;margin-top:-60px">
+        
+          <h1 class="title">
+            <b>Hi, <span id="username">unknown</span>. </b>
+          </h1>
+          
+          <div class="columns"  style="background-color:#fafafa; border-radius:25px;">
+     <div class="column">
+       
+       
+          <h1 class="title">
+            <b>Servers you are in:</b> <a class=" has-shadow button is-info is-medium" onclick="getGuilds()">
+            <i class="fas fa-sync-alt"></i>
+          </a>
+                 
+          </h1>
+          
+    
+          <p id="guilds">
+           🤯Nothing found! Try clicking the blue sync button.
+          </p>
+               </div>   
+          <br>
+               <div class="column">
+                    <h1 class="title">
+            <b>Servers you own:</b> <a class=" has-shadow button is-info is-medium" onclick="getMyGuilds()">
+            <i class="fas fa-sync-alt"></i>
+          </a>
+                 
+          </h1>
+                 
+                 
+          <p id="myguilds">
+                       
+  
+                                 <span>  😢  Nothing found! Try clicking the blue sync button.
+                          
+                                   </span>     
+                            </p>
+ 
+            </div>
+            
+                
+          </div>
+          
+          <br>         <br>
+    <div class="columns"  style="background-color:#fafafa; border-radius:25px;">
+      
+
+     
+     
+                      
+    <div class="column">
+        <h1 class="title">
+     <b>   Configure your server:</b>  
+            </h1>    
+      <div class="field">
+  <input id="switchColorInfo" type="checkbox" name="switchColorInfo" class="switch is-info" checked="checked">
+  <label for="switchColorInfo">Verify Commands</label>
+</div>
+             <div style="margin-left:16px;" class="field">
+  <input id="switchColorInfo2" type="checkbox" name="switchColorInfo" class="switch is-info" checked="checked">
+  <label for="switchColorInfo2">General Commands</label>
+</div>
+
+<input style="width:20%;" id="guild_confirm_text" class="input" type="text" placeholder="Guild Name"> <br><br>
+            <a class="button is-info">Save</a>
+          </div>
+
+            
+                                 
+    <div class="column">
+        <h1 class="title">
+          <b> Report a server: </b>
+            </h1>    
+
+
+<input style="width:20%;" class="input" type="text" placeholder="Message URL"> <br>
+      <input style="width:20%;" class="input" type="text" placeholder="Reason"> <br>
+<input style="width:20%;" class="input" type="text" placeholder="Server Invite"> <br><br>
+            <a class="button is-danger">Report</a>
+          </div>
+            
+      </div>
+          
+          
+          
+          
+          
+          
+          <h1>
+         <a href="./ads"> Want to advertise on Cuborg? Join our advertising platform.</a> 
+          </h1>
+          
+          <img onclick="window.location.href = 'https://discord.gg/VKWp9fW'" src="https://cdn.discordapp.com/attachments/606247744977371147/606933542102106112/unknown.png">
+          
+          
+          
+        </div>
+        
+        
+
+        
+      </section>
+      <br><br><br>
+      <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_donations" />
+            <input type="hidden" name="business" value="SSMBN454PQ2AN" />
+            <input type="hidden" name="currency_code" value="USD" />
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+            <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+          </form>
+          Please note you'll have to create a Cubash account at cubash.com to use Cuborg.<br> &copy <a href="https://laphatize.com">Laphatize</a> 2019
+          </p>
+        </div>
+      </footer>
+  </body>
+  <script
+          src="https://code.jquery.com/jquery-3.4.1.min.js"
+          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+          crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function() {
+      // Check for click events on the navbar burger icon
+      $(".navbar-burger").click(function() {
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        $(".navbar-burger").toggleClass("is-active");
+        $(".navbar-menu").toggleClass("is-active");
+      });
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+      (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+        $notification = $delete.parentNode;
+        $delete.addEventListener('click', () => {
+          $notification.parentNode.removeChild($notification);
+        });
+      });
+    });
+  </script>
+<script src="./discordlogin.js"></script>
+
+  </body>
+</html>
